@@ -9,6 +9,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool showPassword = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +57,34 @@ class _HomePageState extends State<HomePage> {
                               Container(
                                   child: Column(
                                 children: [
-                                  Text('Login'),
+                                  TextFormField(
+                                    decoration: InputDecoration(
+                                        filled: true,
+                                        label: Text('เลขบัตรประจำตัวประชาชน'),
+                                        hintText: 'ระบุเลข 13 หลัก'),
+                                  ),
+                                  TextFormField(
+                                    obscureText: showPassword,
+                                    decoration: InputDecoration(
+                                        filled: true,
+                                        suffixIcon: IconButton(
+                                          icon: showPassword
+                                              ? Icon(Icons.visibility)
+                                              : Icon(Icons.visibility_off),
+                                          onPressed: () {
+                                            setState(() {
+                                              showPassword = !showPassword;
+                                            });
+                                          },
+                                        ),
+                                        label: Text('รหัสผ่าน'),
+                                        hintText: '****'),
+                                  ),
+                                  ElevatedButton(
+                                      onPressed: () {}, child: Text("Login")),
+                                  ElevatedButton(
+                                      onPressed: () {},
+                                      child: Text("Forgot password")),
                                 ],
                               )),
                               Container(
