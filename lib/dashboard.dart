@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_moph/color.dart';
+import 'package:my_moph/e-kyc.dart';
+import 'package:my_moph/forgot_password.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -9,6 +11,8 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -204,7 +208,26 @@ class _DashboardPageState extends State<DashboardPage> {
           )
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+            IconButton(
+                onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
+          ],
+        ),
+      ),
+      /*
+
+      BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+        },
         showSelectedLabels: false,
         showUnselectedLabels: false,
         items: [
@@ -213,6 +236,12 @@ class _DashboardPageState extends State<DashboardPage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.account_circle_outlined), label: 'หน้าหลัก'),
         ],
+      ),
+       */
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.qr_code),
+        onPressed: () {},
       ),
     );
   }
