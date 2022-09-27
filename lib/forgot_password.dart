@@ -12,13 +12,41 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot Password'),
+        title: Text('ลืมรหัสผ่าน'),
       ),
-      body: Column(
+      body: ListView(
         children: [
-          Text('Email address'),
-          TextFormField(),
-          ElevatedButton(onPressed: () {}, child: Text('Send Reset Link'))
+          Container(
+              margin: EdgeInsets.all(20),
+              child: Text('กรุณาระบุอีเมล์เพื่อรับลิงค์สำหรับเปลี่ยนรหัสผ่าน')),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 0, horizontal: 40),
+            child: Column(
+              children: [
+                TextFormField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        label: Text('อีเมล์'),
+                        hintText: 'ระบุอีเมล์เพื่อรับลิงค์เปลี่ยนรหัสผ่าน')),
+                Container(
+                  margin: EdgeInsets.only(left: 60, right: 60, top: 20),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                                padding: EdgeInsets.all(25),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(30))),
+                            onPressed: () {},
+                            child: Text("ส่งลิงค์เพื่อเปลี่ยนรหัสผ่าน")),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

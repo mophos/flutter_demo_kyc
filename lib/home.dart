@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ), // Tabbar
                           Container(
-                            height: 250,
+                            height: 280,
                             // padding: EdgeInsets.all(10),
                             child: TabBarView(
                               children: [
@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                                         Expanded(
                                           child: ElevatedButton(
                                               style: ElevatedButton.styleFrom(
-                                                  padding: EdgeInsets.all(20),
+                                                  padding: EdgeInsets.all(25),
                                                   shape: RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
@@ -118,12 +118,17 @@ class _HomePageState extends State<HomePage> {
                                         Expanded(
                                           child: TextButton(
                                               style: TextButton.styleFrom(
-                                                  padding: EdgeInsets.all(20),
+                                                  padding: EdgeInsets.all(25),
                                                   shape: RoundedRectangleBorder(
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               20))),
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            ForgotPasswordPage()));
+                                              },
                                               child: Text("ลืมรหัสผ่าน")),
                                         ),
                                       ],
