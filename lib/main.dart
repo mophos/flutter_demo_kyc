@@ -16,6 +16,12 @@ class Main extends StatelessWidget {
       theme: ThemeData(
           fontFamily: 'NotoSans',
           primaryColor: Colors.indigo,
+          tabBarTheme: TabBarTheme(
+              labelColor: Colors.indigo,
+              labelStyle:
+                  TextStyle(color: Colors.indigo, fontWeight: FontWeight.bold),
+              unselectedLabelStyle:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
           floatingActionButtonTheme:
               FloatingActionButtonThemeData(backgroundColor: Colors.pink),
           appBarTheme: AppBarTheme(backgroundColor: Colors.pink)),
