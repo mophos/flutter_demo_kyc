@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_moph/register.dart';
 
 class EKycPage extends StatefulWidget {
   const EKycPage({Key? key}) : super(key: key);
@@ -93,7 +94,10 @@ class _EKycPageState extends State<EKycPage> {
                           padding: EdgeInsets.all(20),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => RegisterPage()));
+                      },
                       child: Text("Uploads...")),
                 ),
               ],
