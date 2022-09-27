@@ -15,16 +15,14 @@ class Main extends StatelessWidget {
       title: "My MOPH",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          fontFamily: 'NotoSans',
-          primarySwatch: MyMophColor.mymophpalette,
-          tabBarTheme: TabBarTheme(
-              labelColor: MyMophColor.mymophpalette.shade800,
-              labelStyle: TextStyle(fontWeight: FontWeight.bold),
-              unselectedLabelColor: Colors.grey,
-              unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
-          floatingActionButtonTheme:
-              FloatingActionButtonThemeData(backgroundColor: Colors.pink),
-          appBarTheme: AppBarTheme(backgroundColor: Colors.pink)),
+        fontFamily: 'NotoSans',
+        primarySwatch: MyMophColor.mymophpalette,
+        tabBarTheme: TabBarTheme(
+            labelColor: MyMophColor.mymophpalette.shade800,
+            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            unselectedLabelColor: Colors.grey,
+            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
+      ),
       home: HomePage(),
     );
   }
