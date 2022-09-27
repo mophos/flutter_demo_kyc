@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ), // Tabbar
                           Container(
-                            height: 280,
+                            height: 350,
                             // padding: EdgeInsets.all(10),
                             child: TabBarView(
                               children: [

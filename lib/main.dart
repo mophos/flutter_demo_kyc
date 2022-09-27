@@ -19,9 +19,11 @@ class Main extends StatelessWidget {
         primarySwatch: MyMophColor.mymophpalette,
         tabBarTheme: TabBarTheme(
             labelColor: MyMophColor.mymophpalette.shade800,
-            labelStyle: TextStyle(fontWeight: FontWeight.bold),
+            labelStyle:
+                TextStyle(fontWeight: FontWeight.bold, fontFamily: 'NotoSans'),
             unselectedLabelColor: Colors.grey,
-            unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
+            unselectedLabelStyle:
+                TextStyle(fontWeight: FontWeight.bold, fontFamily: 'NotoSans')),
       ),
       home: HomePage(),
     );
