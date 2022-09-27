@@ -120,10 +120,98 @@ class _DashboardPageState extends State<DashboardPage> {
                       )
                     ],
                   ),
-                )
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: Colors.indigo[400],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.phone,
+                        size: 70,
+                        color: Colors.white,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Book Appointment',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18),
+                              ),
+                              Text(
+                                'Schedule on appointment with our licensed professional',
+                                maxLines: 2,
+                                // overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                      color: Colors.orange[400],
+                      borderRadius: BorderRadius.circular(10)),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.email_outlined,
+                        size: 70,
+                        color: Colors.white,
+                      ),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Book Appointment',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontSize: 18),
+                              ),
+                              Text(
+                                'Schedule on appointment with our licensed professional',
+                                maxLines: 2,
+                                // overflow: TextOverflow.ellipsis,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           )
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
+          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: 'หน้าหลัก'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle_outlined), label: 'หน้าหลัก'),
         ],
       ),
     );
