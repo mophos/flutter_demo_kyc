@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_moph/e-kyc.dart';
 import 'package:my_moph/forgot_password.dart';
 
 class HomePage extends StatefulWidget {
@@ -141,10 +142,12 @@ class _HomePageState extends State<HomePage> {
                                     Padding(
                                       padding: const EdgeInsets.all(5),
                                       child: TextFormField(
+                                        keyboardType:
+                                            TextInputType.emailAddress,
                                         decoration: InputDecoration(
                                             filled: true,
                                             label: Text('อีเมล์'),
-                                            hintText: 'ระบุเลขอีเมล์'),
+                                            hintText: 'ระบุอีเมล์'),
                                       ),
                                     ),
                                     Padding(
@@ -200,8 +203,13 @@ class _HomePageState extends State<HomePage> {
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               30))),
-                                              onPressed: () {},
-                                              child: Text("ลงทะเบียน")),
+                                              onPressed: () {
+                                                Navigator.of(context).push(
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            EKycPage()));
+                                              },
+                                              child: Text("ต่อไป")),
                                         ),
                                       ],
                                     ),
