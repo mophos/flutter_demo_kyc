@@ -209,35 +209,87 @@ class _DashboardPageState extends State<DashboardPage> {
         ],
       ),
       bottomNavigationBar: BottomAppBar(
+        elevation: 0,
         shape: CircularNotchedRectangle(),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            IconButton(onPressed: () {}, icon: Icon(Icons.home)),
             IconButton(
-                onPressed: () {}, icon: Icon(Icons.account_circle_outlined)),
+                onPressed: () {},
+                icon: Icon(
+                  Icons.home,
+                  color: MyMophColor.mymophpalette.shade800,
+                  size: 35,
+                )),
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.account_circle_outlined,
+                  color: MyMophColor.mymophpalette.shade800,
+                  size: 35,
+                )),
           ],
         ),
       ),
-      /*
+      // BottomAppBar(
+      //   color: Colors.transparent,
+      //   elevation: 0,
+      //   shape: CircularNotchedRectangle(),
+      //   child: Container(
+      //     alignment: Alignment.center,
+      //     height: 60,
+      //     margin: EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+      //     decoration: BoxDecoration(
+      //         color: Colors.white,
+      //         borderRadius: BorderRadius.only(
+      //             topRight: Radius.circular(20),
+      //             bottomRight: Radius.circular(20),
+      //             topLeft: Radius.circular(20),
+      //             bottomLeft: Radius.circular(20))),
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //       children: [
+      //         IconButton(
+      //             onPressed: () {},
+      //             icon: Icon(
+      //               Icons.home,
+      //               color: MyMophColor.mymophpalette.shade800,
+      //               size: 35,
+      //             )),
+      //         IconButton(
+      //             onPressed: () {},
+      //             icon: Icon(
+      //               Icons.qr_code,
+      //               color: MyMophColor.mymophpalette.shade800,
+      //               size: 35,
+      //             )),
+      //         IconButton(
+      //             onPressed: () {},
+      //             icon: Icon(
+      //               Icons.account_circle_outlined,
+      //               color: MyMophColor.mymophpalette.shade800,
+      //               size: 35,
+      //             )),
+      //       ],
+      //     ),
+      //   ),
+      // ),
 
-      BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
-          BottomNavigationBarItem(icon: Icon(Icons.qr_code), label: 'หน้าหลัก'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle_outlined), label: 'หน้าหลัก'),
-        ],
-      ),
-       */
+      //     BottomNavigationBar(
+      //   currentIndex: currentIndex,
+      //   onTap: (index) {
+      //     setState(() {
+      //       currentIndex = index;
+      //     });
+      //   },
+      //   showSelectedLabels: false,
+      //   showUnselectedLabels: false,
+      //   items: [
+      //     BottomNavigationBarItem(icon: Icon(Icons.home), label: 'หน้าหลัก'),
+      //     BottomNavigationBarItem(
+      //         icon: Icon(Icons.account_circle_outlined), label: 'หน้าหลัก'),
+      //   ],
+      // ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.qr_code),
