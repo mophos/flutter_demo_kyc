@@ -138,9 +138,75 @@ class _HomePageState extends State<HomePage> {
                                 Container(
                                     child: Column(
                                   children: [
-                                    Text('ลงทะเบียน'),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: TextFormField(
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            label: Text('อีเมล์'),
+                                            hintText: 'ระบุเลขอีเมล์'),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: TextFormField(
+                                        obscureText: showPassword,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            suffixIcon: IconButton(
+                                              icon: showPassword
+                                                  ? Icon(Icons.visibility)
+                                                  : Icon(Icons.visibility_off),
+                                              onPressed: () {
+                                                setState(() {
+                                                  showPassword = !showPassword;
+                                                });
+                                              },
+                                            ),
+                                            label: Text('รหัสผ่าน'),
+                                            hintText: ''),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(5),
+                                      child: TextFormField(
+                                        obscureText: showPassword,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            suffixIcon: IconButton(
+                                              icon: showPassword
+                                                  ? Icon(Icons.visibility)
+                                                  : Icon(Icons.visibility_off),
+                                              onPressed: () {
+                                                setState(() {
+                                                  showPassword = !showPassword;
+                                                });
+                                              },
+                                            ),
+                                            label: Text('ยืนยันรหัสผ่าน'),
+                                            hintText: ''),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  padding: EdgeInsets.all(25),
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              30))),
+                                              onPressed: () {},
+                                              child: Text("ลงทะเบียน")),
+                                        ),
+                                      ],
+                                    ),
                                   ],
-                                ))
+                                )),
                               ],
                             ),
                           ), // TabbarViewer
