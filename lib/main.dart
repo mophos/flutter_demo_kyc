@@ -14,6 +14,7 @@ class Main extends StatelessWidget {
       title: "My MOPH",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+          fontFamily: 'NotoSans',
           primaryColor: Colors.indigo,
           floatingActionButtonTheme:
               FloatingActionButtonThemeData(backgroundColor: Colors.pink),
