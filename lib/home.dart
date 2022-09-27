@@ -27,6 +27,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
+            // padding: EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -40,57 +41,95 @@ class _HomePageState extends State<HomePage> {
                           child: TabBar(
                             tabs: [
                               Tab(
-                                text: 'Login',
+                                text: 'เข้าใช้งานระบบ',
                               ),
                               Tab(
-                                text: 'Register',
+                                text: 'ลงทะเบียนใหม่',
                               )
                             ],
-                            indicatorWeight: 5,
-                            indicatorColor: Colors.indigo[800],
+                            indicatorWeight: 3,
+                            // indicatorColor: Colors.indigo[800],
                           ),
                         ), // Tabbar
                         Container(
                           height: 400,
+                          // padding: EdgeInsets.all(10),
                           child: TabBarView(
                             children: [
                               Container(
                                   child: Column(
                                 children: [
-                                  TextFormField(
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        label: Text('เลขบัตรประจำตัวประชาชน'),
-                                        hintText: 'ระบุเลข 13 หลัก'),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                          filled: true,
+                                          label: Text('เลขบัตรประจำตัวประชาชน'),
+                                          hintText: 'ระบุเลข 13 หลัก'),
+                                    ),
                                   ),
-                                  TextFormField(
-                                    obscureText: showPassword,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        suffixIcon: IconButton(
-                                          icon: showPassword
-                                              ? Icon(Icons.visibility)
-                                              : Icon(Icons.visibility_off),
-                                          onPressed: () {
-                                            setState(() {
-                                              showPassword = !showPassword;
-                                            });
-                                          },
-                                        ),
-                                        label: Text('รหัสผ่าน'),
-                                        hintText: '****'),
+                                  Padding(
+                                    padding: const EdgeInsets.all(5),
+                                    child: TextFormField(
+                                      obscureText: showPassword,
+                                      decoration: InputDecoration(
+                                          filled: true,
+                                          suffixIcon: IconButton(
+                                            icon: showPassword
+                                                ? Icon(Icons.visibility)
+                                                : Icon(Icons.visibility_off),
+                                            onPressed: () {
+                                              setState(() {
+                                                showPassword = !showPassword;
+                                              });
+                                            },
+                                          ),
+                                          label: Text('รหัสผ่าน'),
+                                          hintText: ''),
+                                    ),
                                   ),
-                                  ElevatedButton(
-                                      onPressed: () {}, child: Text("Login")),
-                                  ElevatedButton(
-                                      onPressed: () {},
-                                      child: Text("Forgot password")),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                                padding: EdgeInsets.all(20),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            30))),
+                                            onPressed: () {},
+                                            child: Text("เข้าสู่ระบบ")),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 5,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: TextButton(
+                                            style: TextButton.styleFrom(
+                                                padding: EdgeInsets.all(20),
+                                                shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20))),
+                                            onPressed: () {},
+                                            child: Text("ลืมรหัสผ่าน")),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               )),
                               Container(
                                   child: Column(
                                 children: [
-                                  Text('Register'),
+                                  Text('ลงทะเบียน'),
                                 ],
                               ))
                             ],

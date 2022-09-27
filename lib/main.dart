@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_moph/color.dart';
 import 'package:my_moph/home.dart';
 
 void main() {
@@ -15,13 +16,12 @@ class Main extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           fontFamily: 'NotoSans',
-          primaryColor: Colors.indigo,
+          primarySwatch: MyMophColor.mymophpalette,
           tabBarTheme: TabBarTheme(
-              labelColor: Colors.indigo,
-              labelStyle:
-                  TextStyle(color: Colors.indigo, fontWeight: FontWeight.bold),
-              unselectedLabelStyle:
-                  TextStyle(fontWeight: FontWeight.bold, color: Colors.grey)),
+              labelColor: MyMophColor.mymophpalette.shade800,
+              labelStyle: TextStyle(fontWeight: FontWeight.bold),
+              unselectedLabelColor: Colors.grey,
+              unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold)),
           floatingActionButtonTheme:
               FloatingActionButtonThemeData(backgroundColor: Colors.pink),
           appBarTheme: AppBarTheme(backgroundColor: Colors.pink)),
