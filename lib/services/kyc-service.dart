@@ -25,10 +25,37 @@ class KycService {
     return await dio.post(path, data: {});
   }
 
+  Future<Response> completeSession(String sessionId) async {
+    String path = '/register/ekyc/complete';
+    return await dio.post(path, data: {"sessionId": sessionId});
+  }
+
   Future<Response> uploadFace(String image, String sessionId) async {
     String path = '/register/ekyc/face';
     FormData formData = FormData.fromMap({
       "image": await MultipartFile.fromFile(image, filename: 'face_kyc.png'),
+      "sessionId": sessionId
+    });
+
+    return await dio.post(path, data: formData);
+  }
+
+  Future<Response> uploadFrontIDCard(String image, String sessionId) async {
+    String path = '/register/ekyc/front';
+    FormData formData = FormData.fromMap({
+      "image":
+          await MultipartFile.fromFile(image, filename: 'front_idcard_kyc.png'),
+      "sessionId": sessionId
+    });
+
+    return await dio.post(path, data: formData);
+  }
+
+  Future<Response> uploadBackIDCard(String image, String sessionId) async {
+    String path = '/register/ekyc/back';
+    FormData formData = FormData.fromMap({
+      "image":
+          await MultipartFile.fromFile(image, filename: 'back_idcard_kyc.png'),
       "sessionId": sessionId
     });
 
