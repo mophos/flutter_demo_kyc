@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_moph/register.dart';
+import 'package:my_moph/services/kyc-service.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class EKycPage extends StatefulWidget {
@@ -12,6 +14,26 @@ class EKycPage extends StatefulWidget {
 
 class _EKycPageState extends State<EKycPage> {
   bool isGrantCamera = false;
+  String sessionId = "";
+
+  KycService kycService = KycService();
+
+  Future createSessionId() async {
+    try {
+      Response res = await kycService.createSession();
+      if (res.statusCode == 200) {
+        print(res.data);
+        setState(() {
+          sessionId = res.data['sessionId'];
+        });
+      } else {
+        print(res.statusCode);
+        print(res);
+      }
+    } catch (error) {
+      print(error);
+    }
+  }
 
   Future takePicture() async {
     final ImagePicker _picker = ImagePicker();
@@ -31,6 +53,8 @@ class _EKycPageState extends State<EKycPage> {
       setState(() {
         isGrantCamera = true;
       });
+
+      createSessionId();
       // Set and initialize the new camera
     } else {
       setState(() {
