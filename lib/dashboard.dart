@@ -1,7 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_moph/color.dart';
 import 'package:my_moph/e-kyc.dart';
 import 'package:my_moph/forgot_password.dart';
+import 'package:my_moph/services/api.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -12,6 +14,28 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPageState extends State<DashboardPage> {
   int currentIndex = 0;
+  List users = [];
+
+  Api api = new Api();
+
+  Future getUsers() async {
+    try {
+      Response res = await api.getUsers();
+
+      print(res.data);
+      setState(() {
+        users = res.data['results'];
+      });
+    } catch (error) {
+      print(error);
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getUsers();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -83,128 +107,157 @@ class _DashboardPageState extends State<DashboardPage> {
             decoration: BoxDecoration(color: Colors.red),
             height: 160,
           ),
-          Container(
-            child: Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Colors.teal[400],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.calendar_month,
-                        size: 70,
-                        color: Colors.white,
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Book Appointment',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 18),
-                              ),
-                              Text(
-                                'Schedule on appointment with our licensed professional',
-                                maxLines: 2,
-                                // overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Colors.indigo[400],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.phone,
-                        size: 70,
-                        color: Colors.white,
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Book Appointment',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 18),
-                              ),
-                              Text(
-                                'Schedule on appointment with our licensed professional',
-                                maxLines: 2,
-                                // overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 10, left: 10, right: 10),
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                      color: Colors.orange[400],
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.email_outlined,
-                        size: 70,
-                        color: Colors.white,
-                      ),
-                      Expanded(
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Book Appointment',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                    fontSize: 18),
-                              ),
-                              Text(
-                                'Schedule on appointment with our licensed professional',
-                                maxLines: 2,
-                                // overflow: TextOverflow.ellipsis,
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ],
+          // Container(
+          //   child: Column(
+          //     children: [
+          //       Container(
+          //         margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+          //         padding: EdgeInsets.all(15),
+          //         decoration: BoxDecoration(
+          //             color: Colors.teal[400],
+          //             borderRadius: BorderRadius.circular(10)),
+          //         child: Row(
+          //           children: [
+          //             Icon(
+          //               Icons.calendar_month,
+          //               size: 70,
+          //               color: Colors.white,
+          //             ),
+          //             Expanded(
+          //               child: Container(
+          //                 padding: EdgeInsets.all(10),
+          //                 child: Column(
+          //                   crossAxisAlignment: CrossAxisAlignment.start,
+          //                   children: [
+          //                     Text(
+          //                       'Book Appointment',
+          //                       style: TextStyle(
+          //                           fontWeight: FontWeight.bold,
+          //                           color: Colors.white,
+          //                           fontSize: 18),
+          //                     ),
+          //                     Text(
+          //                       'Schedule on appointment with our licensed professional',
+          //                       maxLines: 2,
+          //                       // overflow: TextOverflow.ellipsis,
+          //                       style: TextStyle(color: Colors.white),
+          //                     ),
+          //                   ],
+          //                 ),
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //       ),
+          //       Container(
+          //         margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+          //         padding: EdgeInsets.all(15),
+          //         decoration: BoxDecoration(
+          //             color: Colors.indigo[400],
+          //             borderRadius: BorderRadius.circular(10)),
+          //         child: Row(
+          //           children: [
+          //             Icon(
+          //               Icons.phone,
+          //               size: 70,
+          //               color: Colors.white,
+          //             ),
+          //             Expanded(
+          //               child: Container(
+          //                 padding: EdgeInsets.all(10),
+          //                 child: Column(
+          //                   crossAxisAlignment: CrossAxisAlignment.start,
+          //                   children: [
+          //                     Text(
+          //                       'Book Appointment',
+          //                       style: TextStyle(
+          //                           fontWeight: FontWeight.bold,
+          //                           color: Colors.white,
+          //                           fontSize: 18),
+          //                     ),
+          //                     Text(
+          //                       'Schedule on appointment with our licensed professional',
+          //                       maxLines: 2,
+          //                       // overflow: TextOverflow.ellipsis,
+          //                       style: TextStyle(color: Colors.white),
+          //                     ),
+          //                   ],
+          //                 ),
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //       ),
+          //       Container(
+          //         margin: EdgeInsets.only(top: 10, left: 10, right: 10),
+          //         padding: EdgeInsets.all(15),
+          //         decoration: BoxDecoration(
+          //             color: Colors.orange[400],
+          //             borderRadius: BorderRadius.circular(10)),
+          //         child: Row(
+          //           children: [
+          //             Icon(
+          //               Icons.email_outlined,
+          //               size: 70,
+          //               color: Colors.white,
+          //             ),
+          //             Expanded(
+          //               child: Container(
+          //                 padding: EdgeInsets.all(10),
+          //                 child: Column(
+          //                   crossAxisAlignment: CrossAxisAlignment.start,
+          //                   children: [
+          //                     Text(
+          //                       'Book Appointment',
+          //                       style: TextStyle(
+          //                           fontWeight: FontWeight.bold,
+          //                           color: Colors.white,
+          //                           fontSize: 18),
+          //                     ),
+          //                     Text(
+          //                       'Schedule on appointment with our licensed professional',
+          //                       maxLines: 2,
+          //                       // overflow: TextOverflow.ellipsis,
+          //                       style: TextStyle(color: Colors.white),
+          //                     ),
+          //                   ],
+          //                 ),
+          //               ),
+          //             )
+          //           ],
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // )
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 10, top: 10, bottom: 5),
+            child: Text(
+              'รายชื่อสมาชิก',
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
+          ),
+          Column(
+            children: users.map((e) {
+              return Container(
+                margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10)),
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(e['picture']['thumbnail']),
+                  ),
+                  title: Text(
+                      '${e['name']['title']}.${e['name']['first']} ${e['name']['last']}'),
+                  subtitle: Text(e['email']),
+                  trailing: Icon(Icons.keyboard_arrow_right),
+                ),
+              );
+            }).toList(),
           )
         ],
       ),
