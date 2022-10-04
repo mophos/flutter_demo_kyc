@@ -4,6 +4,7 @@ import 'package:my_moph/color.dart';
 import 'package:my_moph/e-kyc.dart';
 import 'package:my_moph/forgot_password.dart';
 import 'package:my_moph/services/api.dart';
+import 'package:my_moph/users.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({Key? key}) : super(key: key);
@@ -275,7 +276,10 @@ class _DashboardPageState extends State<DashboardPage> {
                   size: 35,
                 )),
             IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => UsersPage()));
+                },
                 icon: Icon(
                   Icons.account_circle_outlined,
                   color: MyMophColor.mymophpalette.shade800,
