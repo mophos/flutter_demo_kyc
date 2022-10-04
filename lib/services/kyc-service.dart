@@ -25,6 +25,12 @@ class KycService {
     return await dio.post(path, data: {});
   }
 
+  Future<Response> login(String username, String password) async {
+    String path = '/login';
+    return await dio
+        .post(path, data: {"username": username, "password": password});
+  }
+
   Future<Response> completeSession(String sessionId) async {
     String path = '/register/ekyc/complete';
     return await dio.post(path, data: {"sessionId": sessionId});
