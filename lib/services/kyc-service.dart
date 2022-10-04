@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
-String endpoint = 'http://192.168.254.117:3000';
+String endpoint = 'http://192.168.67.117:3000';
 
 class KycService {
   Dio dio = new Dio(new BaseOptions(

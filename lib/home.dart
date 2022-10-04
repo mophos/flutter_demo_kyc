@@ -1,7 +1,10 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:my_moph/dashboard.dart';
 import 'package:my_moph/e-kyc.dart';
 import 'package:my_moph/forgot_password.dart';
+import 'package:my_moph/services/kyc-service.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,12 +14,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  KycService kycService = KycService();
+
   bool showPassword = true;
 
+  final _storage = const FlutterSecureStorage();
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController txtUsername = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
+
+  Future checkLogin() async {
+    try {
+      String username = txtUsername.text;
+      String password = txtPassword.text;
+
+      Response res = await kycService.login(username, password);
+      print(res.data);
+
+      if (res.statusCode == 200) {
+        // pass
+        String accessToken = res.data['access_token'];
+        String refreshToken = res.data['refresh_token'];
+
+        await _storage.write(key: "accessToken", value: accessToken);
+        await _storage.write(key: "refreshToken", value: refreshToken);
+
+        Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (context) => DashboardPage()));
+      } else {
+        print('login failed!');
+      }
+    } catch (error) {
+      print(error);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -129,17 +161,10 @@ class _HomePageState extends State<HomePage> {
                                               onPressed: () {
                                                 if (_formKey.currentState!
                                                     .validate()) {
-                                                  print(txtUsername.text);
-                                                  print(txtPassword.text);
+                                                  checkLogin();
                                                 } else {
                                                   // not valid
                                                 }
-
-                                                // Navigator.of(context)
-                                                //     .pushReplacement(
-                                                //         MaterialPageRoute(
-                                                //             builder: (context) =>
-                                                //                 DashboardPage()));
                                               },
                                               child: Text("เข้าสู่ระบบ")),
                                         ),

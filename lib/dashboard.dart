@@ -4,6 +4,7 @@ import 'package:my_moph/color.dart';
 import 'package:my_moph/e-kyc.dart';
 import 'package:my_moph/forgot_password.dart';
 import 'package:my_moph/services/api.dart';
+import 'package:my_moph/setting.dart';
 import 'package:my_moph/users.dart';
 
 class DashboardPage extends StatefulWidget {
@@ -53,12 +54,21 @@ class _DashboardPageState extends State<DashboardPage> {
               radius: 25,
               backgroundImage: AssetImage("assets/images/customer.png"),
             ),
-            Text(
-              "xxxxxx",
-              style: TextStyle(
-                  fontWeight: FontWeight.normal,
-                  color: MyMophColor.mymophpalette.shade800),
-            )
+            // Text(
+            //   "xxxxxx",
+            //   style: TextStyle(
+            //       fontWeight: FontWeight.normal,
+            //       color: MyMophColor.mymophpalette.shade800),
+            // )
+            IconButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => SettingPage()));
+                },
+                icon: Icon(
+                  Icons.settings,
+                  color: MyMophColor.mymophpalette.shade800,
+                ))
           ],
         ),
       ),
